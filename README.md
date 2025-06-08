@@ -1,1 +1,2 @@
-# JavaScript-Beginner-Tutorial
+
+It helps beginner to code with javascript 
