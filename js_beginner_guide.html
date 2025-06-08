@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript for Complete Beginners</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        
+        .lesson {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .lesson h2 {
+            color: #2c3e50;
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .lesson-number {
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .code-editor {
+            background: #2c3e50;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            position: relative;
+        }
+        
+        .code-editor textarea {
+            width: 100%;
+            height: 120px;
+            background: transparent;
+            border: none;
+            color: #ecf0f1;
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            outline: none;
+        }
+        
+        .run-btn {
+            background: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .run-btn:hover {
+            background: #229954;
+        }
+        
+        .output {
+            background: #34495e;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-family: 'Courier New', monospace;
+            min-height: 50px;
+            white-space: pre-wrap;
+        }
+        
+        .tip {
+            background: #fff3cd;
+            border: 1px solid #f6c23e;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        
+        .tip strong {
+            color: #856404;
+        }
+        
+        .progress-bar {
+            background: #ecf0f1;
+            height: 10px;
+            border-radius: 5px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            height: 100%;
+            width: 0%;
+            transition: width 0.5s ease;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        
+        .nav-btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .nav-btn:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 JavaScript for Complete Beginners</h1>
+        <p class="subtitle">Learn by doing - try every example yourself!</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+        
+        <!-- Lesson 1: What is JavaScript? -->
+        <div class="lesson" id="lesson1">
+            <h2><span class="lesson-number">1</span>What is JavaScript?</h2>
+            <p>JavaScript is the programming language of the web! It makes websites interactive - like when you click a button and something happens.</p>
+            
+            <p><strong>Let's start with your first line of code:</strong></p>
+            <div class="code-editor">
+                <textarea id="code1">console.log("Hello, World!");</textarea>
+                <button class="run-btn" onclick="runCode('code1', 'output1')">▶ Run Code</button>
+            </div>
+            <div class="output" id="output1">Click "Run Code" to see the magic happen!</div>
+            
+            <div class="tip">
+                <strong>💡 Tip:</strong> <code>console.log()</code> is like JavaScript's way of "printing" or showing you something. It's super useful for debugging!
+            </div>
+        </div>
+        
+        <!-- Lesson 2: Variables -->
+        <div class="lesson hidden" id="lesson2">
+            <h2><span class="lesson-number">2</span>Variables - Storing Information</h2>
+            <p>Variables are like boxes where you store information. You can put different types of things in them!</p>
+            
+            <div class="code-editor">
+                <textarea id="code2">// Storing text (strings)
+let name = "Alex";
+let greeting = "Hello there!";
+
+// Storing numbers
+let age = 25;
+let temperature = 72.5;
+
+// Storing true/false values
+let isAwesome = true;
+let isRaining = false;
+
+// Let's see what we stored
+console.log("Name:", name);
+console.log("Age:", age);
+console.log("Is awesome?", isAwesome);</textarea>
+                <button class="run-btn" onclick="runCode('code2', 'output2')">▶ Run Code</button>
+            </div>
+            <div class="output" id="output2">Your output will appear here...</div>
+            
+            <div class="tip">
+                <strong>💡 Try this:</strong> Change the values and run the code again. Try putting your own name and age!
+            </div>
+        </div>
+        
+        <!-- Lesson 3: Basic Math -->
+        <div class="lesson hidden" id="lesson3">
+            <h2><span class="lesson-number">3</span>Math in JavaScript</h2>
+            <p>JavaScript can do math! Let's try some calculations:</p>
+            
+            <div class="code-editor">
+                <textarea id="code3">// Basic math operations
+let x = 10;
+let y = 5;
+
+console.log("Addition:", x + y);
+console.log("Subtraction:", x - y);
+console.log("Multiplication:", x * y);
+console.log("Division:", x / y);
+
+// You can also do math with the results
+let sum = x + y;
+let doubled = sum * 2;
+console.log("Sum doubled:", doubled);
+
+// Fun with strings + numbers
+let score = 100;
+console.log("Your score is: " + score + " points!");</textarea>
+                <button class="run-btn" onclick="runCode('code3', 'output3')">▶ Run Code</button>
+            </div>
+            <div class="output" id="output3">Your output will appear here...</div>
+            
+            <div class="tip">
+                <strong>💡 Cool fact:</strong> When you use + with text and numbers, JavaScript combines them into one string!
+            </div>
+        </div>
+        
+        <!-- Lesson 4: Making Decisions -->
+        <div class="lesson hidden" id="lesson4">
+            <h2><span class="lesson-number">4</span>Making Decisions with if/else</h2>
+            <p>Sometimes your code needs to make choices. That's where if/else comes in!</p>
+            
+            <div class="code-editor">
+                <textarea id="code4">let weather = "sunny";
+let temperature = 75;
+
+if (weather === "sunny") {
+    console.log("It's a great day for a walk!");
+} else if (weather === "rainy") {
+    console.log("Better bring an umbrella!");
+} else {
+    console.log("Let's see what the weather brings!");
+}
+
+// Multiple conditions
+if (temperature > 80) {
+    console.log("It's hot! Stay hydrated!");
+} else if (temperature > 60) {
+    console.log("Perfect weather!");
+} else {
+    console.log("Might want a jacket!");
+}
+
+// Try changing the weather and temperature values above!</textarea>
+                <button class="run-btn" onclick="runCode('code4', 'output4')">▶ Run Code</button>
+            </div>
+            <div class="output" id="output4">Your output will appear here...</div>
+            
+            <div class="tip">
+                <strong>💡 Experiment:</strong> Try changing "sunny" to "rainy" or change the temperature to see different messages!
+            </div>
+        </div>
+        
+        <!-- Lesson 5: Functions -->
+        <div class="lesson hidden" id="lesson5">
+            <h2><span class="lesson-number">5</span>Functions - Reusable Code Blocks</h2>
+            <p>Functions are like recipes - you write them once, then use them whenever you need them!</p>
+            
+            <div class="code-editor">
+                <textarea id="code5">// Creating a function
+function greetPerson(name) {
+    return "Hello, " + name + "! Nice to meet you!";
+}
+
+// Using the function
+console.log(greetPerson("Sarah"));
+console.log(greetPerson("Mike"));
+console.log(greetPerson("Alex"));
+
+// A function that does math
+function calculateTip(billAmount, tipPercent) {
+    let tip = billAmount * (tipPercent / 100);
+    return tip;
+}
+
+let bill = 50;
+let tipAmount = calculateTip(bill, 18);
+console.log("Tip for $" + bill + " meal: $" + tipAmount.toFixed(2));</textarea>
+                <button class="run-btn" onclick="runCode('code5', 'output5')">▶ Run Code</button>
+            </div>
+            <div class="output" id="output5">Your output will appear here...</div>
+            
+            <div class="tip">
+                <strong>💡 Practice:</strong> Try calling the functions with different names and tip percentages!
+            </div>
+        </div>
+        
+        <!-- Lesson 6: Arrays -->
+        <div class="lesson hidden" id="lesson6">
+            <h2><span class="lesson-number">6</span>Arrays - Lists of Things</h2>
+            <p>Arrays let you store multiple items in one variable - like a shopping list!</p>
+            
+            <div class="code-editor">
+                <textarea id="code6">// Creating an array
+let fruits = ["apple", "banana", "orange", "grape"];
+let numbers = [1, 2, 3, 4, 5];
+
+// Accessing items (counting starts at 0!)
+console.log("First fruit:", fruits[0]);
+console.log("Second fruit:", fruits[1]);
+
+// Adding items
+fruits.push("strawberry");
+console.log("After adding strawberry:", fruits);
+
+// Array length
+console.log("We have", fruits.length, "fruits");
+
+// Loop through array
+console.log("All fruits:");
+for (let i = 0; i < fruits.length; i++) {
+    console.log("- " + fruits[i]);
+}</textarea>
+                <button class="run-btn" onclick="runCode('code6', 'output6')">▶ Run Code</button>
+            </div>
+            <div class="output" id="output6">Your output will appear here...</div>
+            
+            <div class="tip">
+                <strong>💡 Remember:</strong> Arrays start counting at 0, not 1! So the first item is at position [0].
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="nav-buttons">
+            <button class="nav-btn" id="prevBtn" onclick="previousLesson()" disabled>← Previous</button>
+            <span id="lessonCounter">Lesson 1 of 6</span>
+            <button class="nav-btn" id="nextBtn" onclick="nextLesson()">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentLesson = 1;
+        const totalLessons = 6;
+        
+        function runCode(codeId, outputId) {
+            const code = document.getElementById(codeId).value;
+            const output = document.getElementById(outputId);
+            
+            // Clear previous output
+            output.innerHTML = '';
+            
+            // Capture console.log output
+            const originalLog = console.log;
+            const logs = [];
+            
+            console.log = function(...args) {
+                logs.push(args.map(arg => 
+                    typeof arg === 'object' ? JSON.stringify(arg) : String(arg)
+                ).join(' '));
+            };
+            
+            try {
+                // Execute the code
+                eval(code);
+                
+                // Display the captured output
+                if (logs.length > 0) {
+                    output.innerHTML = logs.join('\n');
+                } else {
+                    output.innerHTML = 'Code executed successfully (no output)';
+                }
+            } catch (error) {
+                output.innerHTML = '❌ Error: ' + error.message;
+                output.style.color = '#e74c3c';
+            }
+            
+            // Restore original console.log
+            console.log = originalLog;
+        }
+        
+        function updateProgress() {
+            const progress = (currentLesson / totalLessons) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+        }
+        
+        function showLesson(lessonNum) {
+            // Hide all lessons
+            for (let i = 1; i <= totalLessons; i++) {
+                document.getElementById('lesson' + i).classList.add('hidden');
+            }
+            
+            // Show current lesson
+            document.getElementById('lesson' + lessonNum).classList.remove('hidden');
+            
+            // Update navigation
+            document.getElementById('prevBtn').disabled = lessonNum === 1;
+            document.getElementById('nextBtn').disabled = lessonNum === totalLessons;
+            document.getElementById('lessonCounter').textContent = `Lesson ${lessonNum} of ${totalLessons}`;
+            
+            // Update progress
+            updateProgress();
+        }
+        
+        function nextLesson() {
+            if (currentLesson < totalLessons) {
+                currentLesson++;
+                showLesson(currentLesson);
+            }
+        }
+        
+        function previousLesson() {
+            if (currentLesson > 1) {
+                currentLesson--;
+                showLesson(currentLesson);
+            }
+        }
+        
+        // Initialize
+        showLesson(1);
+    </script>
+</body>
+</html>
